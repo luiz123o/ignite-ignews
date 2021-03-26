@@ -1,8 +1,8 @@
 {
-    "name": "Template - Boilerplate",
-    "short_name": "Template",
+    "name": "ignews",
+    "short_name": "ignews",
     "icons": [{
-            "src": "/img/favicon-ipr.png",
+            "src": "/favicon.png",
             "type": "image/png",
             "sizes": "16x16"
         }

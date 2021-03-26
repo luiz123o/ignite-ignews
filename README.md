@@ -4,8 +4,8 @@
 
 </br>
 
-<h1 align="center">🚀 Ignite - DTMONEY</h1>
-<p align="center">Criação de App capaz de registros financeiros</p>
+<h1 align="center">🚀 Ignite - IGNEWS</h1>
+<p align="center"></p>
 <p align="center">
 <ul>
 <li>Adicionado sistema de themas</li>
