@@ -8,7 +8,6 @@ export const SignInButton = () => {
   const isUserLogged = session ? true : false
   return (
     <>
-      <S.ImgPerfil src={session?.user.image} />
       <S.Container
         onClick={() => (isUserLogged === true ? signOut() : signIn('github'))}
       >
