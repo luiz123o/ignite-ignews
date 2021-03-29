@@ -19,16 +19,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const user = await fauna.query<User>(
       q.Get(
-        q.Match(
-          q.Index('user_by_email'),
-          q.Casefold(session?.user.email ? session?.user.email : '')
-        )
+        q.Match(q.Index('user_by_email'), q.Casefold(session?.user.email ?? ''))
       )
     )
     let customerId = user.data.stripe_customer_id
     if (!customerId) {
       const stripeCustomer = await stripe.customers.create({
-        email: session?.user.email !== null ? session?.user.email : ''
+        email: session?.user.email ?? ''
       })
       await fauna.query(
         q.Update(q.Ref(q.Collection('users'), user.ref.id), {
@@ -45,14 +42,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       line_items: [{ price: 'price_1IYXXqGQtLhyoETfsUSrgj2O', quantity: 1 }],
       mode: 'subscription',
       allow_promotion_codes: true,
-      success_url:
-        process.env.STRIPE_SUCCESS_URL !== undefined
-          ? process.env.STRIPE_SUCCESS_URL
-          : '',
-      cancel_url:
-        process.env.STRIPE_CANCEL_URL !== undefined
-          ? process.env.STRIPE_CANCEL_URL
-          : ''
+      success_url: process.env.STRIPE_SUCCESS_URL ?? '',
+      cancel_url: process.env.STRIPE_CANCEL_URL ?? ''
     })
     return res.status(200).json({ sessionId: checkoutSession.id })
   } else {

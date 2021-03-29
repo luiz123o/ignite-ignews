@@ -6,6 +6,7 @@ const dark = {
     titles: '#FFFFFF',
     text: '#E1E1E6',
     detailLight: '#737380',
+    detailsPost: '#323238',
     detail: '#29292e',
     shape: '#1F2729',
     background: '#121414'

@@ -1,9 +1,10 @@
 //import { useState } from 'react'
 import * as S from './styles'
 import { SignInButton } from './SignInButton'
+import { useState } from 'react'
 
 export const Header = () => {
-  /*const [ActiveHome, setActiveHome] = useState(false)
+  const [ActiveHome, setActiveHome] = useState(false)
   const [ActivePosts, setActivePosts] = useState(false)
 
   function handleClickHome() {
@@ -14,17 +15,20 @@ export const Header = () => {
     setActiveHome(false)
     setActivePosts(true)
   }
-  */
 
   return (
     <S.Container>
       <S.Content>
         <img src="/images/logo.svg" alt="logo" />
         <S.NavItems>
-          <S.MenuLink isActive href="/">
+          <S.MenuLink isActive={ActiveHome} onClick={handleClickHome} href="/">
             Home
           </S.MenuLink>
-          <S.MenuLink isActive={false} href="/posts">
+          <S.MenuLink
+            isActive={ActivePosts}
+            onClick={handleClickPost}
+            href="/posts"
+          >
             Posts
           </S.MenuLink>
         </S.NavItems>

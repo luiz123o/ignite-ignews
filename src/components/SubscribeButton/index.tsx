@@ -2,8 +2,11 @@ import { signIn, useSession } from 'next-auth/client'
 import { api } from 'services/api'
 import { getStripeJs } from 'services/stripe-js'
 import * as S from './styles'
-
-export const SubscribeButton = () => {
+type SubscribeButtonProps = {
+  priceId: string
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const SubscribeButton = ({ priceId }: SubscribeButtonProps) => {
   const [session] = useSession()
 
   async function handleSubscribe() {
