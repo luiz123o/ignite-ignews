@@ -21,20 +21,20 @@ export const Content = styled(motion.header)`
   height: 5rem;
 `
 interface LinkProps {
-  isActive: boolean
+  activeStats: boolean
 }
 export const NavItems = styled(motion.nav)`
   margin-left: 5rem;
   height: 100%;
 `
 export const MenuLink = styled(motion.a)<LinkProps>`
-  ${({ theme, isActive }) => css`
+  ${({ theme, activeStats }) => css`
     display: inline-block;
     position: relative;
     padding: 0 0.5rem;
     height: 5rem;
     line-height: 5rem;
-    color: ${theme.colors[isActive ? 'titles' : 'text']};
+    color: ${theme.colors[activeStats ? 'titles' : 'text']};
     transition: color 0.2s;
     & + a {
       margin-left: 2rem;
@@ -43,7 +43,7 @@ export const MenuLink = styled(motion.a)<LinkProps>`
       color: ${theme.colors.yellow};
     }
 
-    ${isActive &&
+    ${activeStats &&
     css`
       color: ${theme.colors.titles};
       font-weight: bold;
