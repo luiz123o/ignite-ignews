@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import { linearGradient } from 'polished'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.main`
   max-width: 1120px;
@@ -34,5 +35,25 @@ export const PostContent = styled.div`
     li {
       margin: 0.5rem 0;
     }
+  }
+`
+export const PreviewContent = styled.div`
+  ${({ theme }) => css`
+    background: linear-gradient(${theme.colors.text}, transparent);
+    background-clip: text;
+    color: ${theme.colors.text};
+  `}
+`
+export const ContinueReading = styled.div`
+  padding: 2rem;
+  text-align: center;
+  background: ${({ theme }) => theme.colors.detail};
+  border-radius: 100px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 4rem 0 2rem;
+  a {
+    color: ${({ theme }) => theme.colors.yellow};
+    margin-left: 0.5rem;
   }
 `
